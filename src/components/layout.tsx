@@ -33,14 +33,14 @@ export default function Layout({ children }) {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">
+            <Link className="navbar-brand" to="/">
               Trailers
-            </a>
+            </Link>
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </li>
               {data.allGraphCmsModel.nodes.map(trailerModel => {
                 return (
