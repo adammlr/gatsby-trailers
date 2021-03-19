@@ -1,0 +1,9 @@
+fragment MarketingPage on MarketingPage {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  mainContent
+  slug
+}

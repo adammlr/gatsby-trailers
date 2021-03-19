@@ -1,26 +1,32 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 
 export default function TrailerDisplay({ data }) {
+  const image = getImage(data.graphCmsModel.coverImage)
+
   return (
     <Layout>
       <h1>{data.graphCmsModel.name}</h1>
       <div>
-        <img src={data.graphCmsModel.coverImage.url} width="400px"></img>
+        <GatsbyImage image={image} alt={data.graphCmsModel.name} />
+      </div>
+      <div style={{ whiteSpace: "pre-wrap" }}>
+        {data.graphCmsModel.marketingText}
       </div>
     </Layout>
   )
 }
 
-//TODO: why doesn't transformation work?
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     graphCmsModel(urlSlug: { eq: $slug }) {
       urlSlug
       name
+      marketingText
       coverImage {
-        url
+        gatsbyImageData(width: 600)
       }
     }
   }

@@ -6,6 +6,7 @@ fragment Model on Model {
   publishedAt
   name
   urlSlug
+  marketingText
   coverImage {
     ... on Asset {
       remoteTypeName: __typename

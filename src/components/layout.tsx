@@ -39,12 +39,9 @@ export default function Layout({ children }) {
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
               {data.allGraphCmsModel.nodes.map(trailerModel => {
                 return (
-                  <li>
+                  <li key={trailerModel.urlSlug}>
                     <Link to={`/trailers/${trailerModel.urlSlug}`}>
                       {trailerModel.name}
                     </Link>
