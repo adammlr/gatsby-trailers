@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import "../css/bootstrap.min.css"
 
 export default function Layout({ children }) {
-  //useStaticQuery is executed at build time
+  // useStaticQuery is executed at build time
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       allGraphCmsModel {
@@ -29,9 +29,9 @@ export default function Layout({ children }) {
               aria-controls="navbar"
             >
               <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
+              <span className="icon-bar" />
+              <span className="icon-bar" />
+              <span className="icon-bar" />
             </button>
             <Link className="navbar-brand" to="/">
               Trailers
@@ -39,15 +39,13 @@ export default function Layout({ children }) {
           </div>
           <div id="navbar" className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              {data.allGraphCmsModel.nodes.map(trailerModel => {
-                return (
-                  <li key={trailerModel.urlSlug}>
-                    <Link to={`/trailers/${trailerModel.urlSlug}`}>
-                      {trailerModel.name}
-                    </Link>
-                  </li>
-                )
-              })}
+              {data.allGraphCmsModel.nodes.map(trailerModel => (
+                <li key={trailerModel.urlSlug}>
+                  <Link to={`/trailers/${trailerModel.urlSlug}`}>
+                    {trailerModel.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
